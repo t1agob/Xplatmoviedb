@@ -3,3 +3,12 @@
 ################################################################################
 
 /packages
+/XPlat-MovieDB/XPlat_MovieDB/bin/Debug
+/XPlat-MovieDB/XPlat_MovieDB/obj/Debug
+/XPlat-MovieDB/XPlat_MovieDB.iOS/bin/iPhone/Debug
+/XPlat-MovieDB/XPlat_MovieDB/bin/Debug
+/XPlat-MovieDB/XPlat_MovieDB.Android/bin/Debug
+/XPlat-MovieDB/XPlat_MovieDB.Android/obj
+/XPlat-MovieDB/XPlat_MovieDB.iOS/obj/iPhone/Debug
+/XPlat-MovieDB/XPlat_MovieDB.UWP/bin/x86/Debug
+/XPlat-MovieDB/XPlat_MovieDB.UWP/obj

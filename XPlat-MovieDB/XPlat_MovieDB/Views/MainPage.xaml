@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XPlat_MovieDB"
+             xmlns:vm="clr-namespace:XPlat_MovieDB.ViewModels"
+             xmlns:views="clr-namespace:XPlat_MovieDB.Views"
+             x:Class="XPlat_MovieDB.Views.MainPage"
+            IsBusy="{Binding IsBusy}">
+    <TabbedPage.BindingContext>
+        <vm:MovieViewModel/>
+    </TabbedPage.BindingContext>
+
+    <TabbedPage.Children>
+        <ContentPage Title="Now Playing">
+            <ListView ItemsSource="{Binding NowPlayingMovies}" Margin="10" ItemTapped="ListView_ItemTapped" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0"                                        
+                                       Grid.RowSpan="3" 
+                                       VerticalOptions="StartAndExpand"
+                                       Source="{Binding PosterPath}" 
+                                       HeightRequest="150"/>
+                                <Label Grid.Row="0" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Title}" 
+                                       FontSize="Medium"                                        
+                                       TextColor="DeepSkyBlue"/>
+                                <Label Grid.Row="1" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Overview, StringFormat='{0} ...'}"
+                                       FontSize="Micro"
+                                       HeightRequest="50"                                       
+                                       LineBreakMode="WordWrap"/>
+                                <Label Grid.Row="2" 
+                                       Grid.Column="1"
+                                       TextColor="Goldenrod"
+                                       Text="{Binding VoteAverage, StringFormat='{0}/10 stars'}"/>
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       FontSize="Micro"
+                                       VerticalOptions="StartAndExpand"
+                                       Text="{Binding VoteCount, StringFormat='votes: {0}'}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage>
+        <ContentPage Title="Popular">
+            <ListView ItemsSource="{Binding PopularMovies}"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      Margin="10"
+                      ItemTapped="ListView_ItemTapped"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0"                                        
+                                       Grid.RowSpan="3" 
+                                       VerticalOptions="StartAndExpand"
+                                       Source="{Binding PosterPath}" 
+                                       HeightRequest="150"/>
+                                <Label Grid.Row="0" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Title}" 
+                                       FontSize="Medium"                                        
+                                       TextColor="DeepSkyBlue"/>
+                                <Label Grid.Row="1" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Overview, StringFormat='{0} ...'}"
+                                       FontSize="Micro"
+                                       HeightRequest="50"                                       
+                                       LineBreakMode="WordWrap"/>
+                                <Label Grid.Row="2" 
+                                       Grid.Column="1"
+                                       TextColor="Goldenrod"
+                                       Text="{Binding VoteAverage, StringFormat='{0}/10 stars'}"/>
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       FontSize="Micro"
+                                       VerticalOptions="StartAndExpand"
+                                       Text="{Binding VoteCount, StringFormat='votes: {0}'}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage>
+        <ContentPage Title="Upcoming">
+            <ListView ItemsSource="{Binding UpcomingMovies}" Margin="10" ItemTapped="ListView_ItemTapped"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0"                                        
+                                       Grid.RowSpan="3" 
+                                       VerticalOptions="StartAndExpand"
+                                       Source="{Binding PosterPath}" 
+                                       HeightRequest="150"/>
+                                <Label Grid.Row="0" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Title}" 
+                                       FontSize="Medium"                                        
+                                       TextColor="DeepSkyBlue"/>
+                                <Label Grid.Row="1" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Overview, StringFormat='{0} ...'}"
+                                       FontSize="Micro"
+                                       HeightRequest="50"                                       
+                                       LineBreakMode="WordWrap"/>
+                                <Label Grid.Row="2" 
+                                       Grid.Column="1"
+                                       TextColor="Goldenrod"
+                                       Text="{Binding VoteAverage, StringFormat='{0}/10 stars'}"/>
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       FontSize="Micro"
+                                       VerticalOptions="StartAndExpand"
+                                       Text="{Binding VoteCount, StringFormat='votes: {0}'}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage>
+        <ContentPage Title="Favorites">
+            <ListView ItemsSource="{Binding FavoriteMovies}" SelectedItem="{Binding SelectedItem}" Margin="10" ItemTapped="ListView_ItemTapped"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0"                                        
+                                       Grid.RowSpan="3" 
+                                       VerticalOptions="StartAndExpand"
+                                       Source="{Binding PosterPath}" 
+                                       HeightRequest="150"/>
+                                <Label Grid.Row="0" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Title}" 
+                                       FontSize="Medium"                                        
+                                       TextColor="DeepSkyBlue"/>
+                                <Label Grid.Row="1" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Overview, StringFormat='{0} ...'}"
+                                       FontSize="Micro"
+                                       HeightRequest="50"                                       
+                                       LineBreakMode="WordWrap"/>
+                                <Label Grid.Row="2" 
+                                       Grid.Column="1"
+                                       TextColor="Goldenrod"
+                                       Text="{Binding VoteAverage, StringFormat='{0}/10 stars'}"/>
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       FontSize="Micro"
+                                       VerticalOptions="StartAndExpand"
+                                       Text="{Binding VoteCount, StringFormat='votes: {0}'}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage>
+    </TabbedPage.Children>
+
+
+</TabbedPage>
